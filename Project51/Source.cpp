@@ -22,7 +22,7 @@ int main()
 	cout << res << endl;
 	char* str1 = new char[100];
 	char* str2 = new char[110];
-	strcpy(str1, "Мир пока");
+	strcpy(str1, "Мир пока сука");
 	findANDreplace(str1, str2);
 	cout << str1 << endl;
 	cout << str2 << endl;
@@ -48,6 +48,7 @@ void findANDreplace(char* str_l, char* resault_l) {
 	char str1[250];
 	short iii;
 	short addres = 0;
+	int n = 0;
 	for (; i < ii - 1;) {
 		strncpy(str1, i + str, 50);
 		iii = strcspn(str1, " ");
@@ -56,11 +57,16 @@ void findANDreplace(char* str_l, char* resault_l) {
 		strncpy(res, addres + str, i-1 - addres); 
 		strcat(resault, res);
 		strcat(resault, "' ");
+		n++;
 		addres = i;
 		
 		if (i > ii) break;
 		strcat(resault, "'");
 	}
+	char ss[100] = {};
+	sprintf(ss, "Было произведено %0.0d вставок: ", n);
+	strcat(ss, resault);
+	strncpy(resault, ss, 100);
 	for (int i = 0; i < strlen(resault); i++) {
 		resault_l[i] = resault[i];
 	}
