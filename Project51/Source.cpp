@@ -7,7 +7,7 @@
 using namespace std;
 
 void findANDreplace(char* str, char* resault);
-void convert(float y, char* str);
+void convert(float y, float z, char* str);
 
 int main()
 {
@@ -18,21 +18,22 @@ int main()
 	cout << "Введите z: ";
 	cin >> z;
 	char res[50];
-	convert(y, res);
+	convert(y, z, res);
 	cout << res << endl;
 	char* str1 = new char[100];
 	char* str2 = new char[110];
-	strcpy(str1, "Мир пока сука");
+	strcpy(str1, "Мир пока");
 	findANDreplace(str1, str2);
 	cout << str1 << endl;
 	cout << str2 << endl;
 	delete[]str1;
 	delete[]str2;
 }
-void convert(float y, char* str)
+
+void convert(float y, float z, char* str)
 {
-	double x = sin(3 * y) + 16.5;
-	sprintf(str, "%08.8f = sin(3* %08.8f)+16.5", x, y);
+	double x = log(y+3*z);
+	sprintf(str, "%03.5f = log10(%03.5f+3*%03.5f)", x, y, z);
 }
 
 void findANDreplace(char* str_l, char* resault_l) {
